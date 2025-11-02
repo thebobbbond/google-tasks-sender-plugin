@@ -1,0 +1,29 @@
+openapi: 3.1.1
+info:
+  title: Send Task to Make Webhook
+  version: 1.0.0
+servers:
+  - url: https://make‑webhook‑proxy‑ten.vercel.app/api/proxy
+paths:
+  /:
+    post:
+      summary: Send task to Make webhook to create a Google Task
+      operationId: sendTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                task_title:
+                  type: string
+                task_notes:
+                  type: string
+                due_date:
+                  type: string
+              required:
+                - task_title
+      responses:
+        '200':
+          description: Task successfully sent
