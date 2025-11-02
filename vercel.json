@@ -1,12 +1,11 @@
 {
-  "rewrites": [
-    {
-      "source": "/.well-known/ai-plugin.json",
-      "destination": "/.well-known/ai-plugin.json"
-    },
-    {
-      "source": "/openapi.yaml",
-      "destination": "/openapi.yaml"
-    }
+  "version": 2,
+  "builds": [
+    { "src": "api/index.js", "use": "@vercel/node" },
+    { "src": "public/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/index.js" },
+    { "src": "/(.*)", "dest": "/public/$1" }
   ]
 }
