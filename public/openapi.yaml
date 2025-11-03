@@ -1,14 +1,17 @@
-openapi: 3.1.1
+openapi: 3.1.0
 info:
-  title: Send Task to Make Webhook
-  version: 1.0.0
+  title: Google Tasks Sender Plugin
+  version: "1.0.0"
+  description: >
+    A simple plugin that forwards task data from ChatGPT to a Make webhook
+    which then adds it to Google Tasks.
 servers:
-  - url: https://make‑webhook‑proxy‑ten.vercel.app/api/proxy
+  - url: https://google-tasks-sender-plugin.vercel.app
 paths:
-  /:
+  /api:
     post:
-      summary: Send task to Make webhook to create a Google Task
-      operationId: sendTask
+      summary: Forward a task to Make webhook
+      operationId: forwardTask
       requestBody:
         required: true
         content:
@@ -16,14 +19,15 @@ paths:
             schema:
               type: object
               properties:
-                task_title:
+                title:
                   type: string
-                task_notes:
+                  example: "Buy groceries"
+                notes:
                   type: string
-                due_date:
+                  example: "Include oat milk"
+                due:
                   type: string
-              required:
-                - task_title
+                  example: "2025-11-05"
       responses:
-        '200':
-          description: Task successfully sent
+        "200":
+          description: Successful forward
