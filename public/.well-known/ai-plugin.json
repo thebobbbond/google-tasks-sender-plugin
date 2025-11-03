@@ -2,18 +2,16 @@
   "schema_version": "v1",
   "name_for_human": "Google Tasks Sender",
   "name_for_model": "google_tasks_sender",
-  "description_for_human": "Send tasks to your Google Tasks inbox via webhook",
-  "description_for_model": "Send a task with title, optional notes and optional due date to the Google Tasks inbox list",
+  "description_for_human": "Send tasks from ChatGPT to Google Tasks via Make webhook.",
+  "description_for_model": "Forwards user-specified task data to a Make webhook that adds tasks to Google Tasks.",
   "auth": {
     "type": "none"
   },
   "api": {
     "type": "openapi",
-    "url": "https://make‑webhook‑proxy‑ten.vercel.app/openapi.yaml",
-    "is_user_authenticated": false
+    "url": "https://google-tasks-sender-plugin.vercel.app/openapi.yaml"
   },
-  "logo_url": "https://make‑webhook‑proxy‑ten.vercel.app/logo.png",
-  "contact_email": "your‑email@domain.com",
-  "legal_info_url": "https://yourdomain.com/legal"
+  "logo_url": "https://google-tasks-sender-plugin.vercel.app/icon.png",
+  "contact_email": "support@example.com",
+  "legal_info_url": "https://google-tasks-sender-plugin.vercel.app/legal"
 }
-
