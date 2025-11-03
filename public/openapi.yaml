@@ -1,12 +1,14 @@
-openapi: 3.1.0
+openapi: 3.0.1
 info:
   title: Google Tasks Sender Plugin
   version: "1.0.0"
   description: >
-    A simple plugin that forwards task data from ChatGPT to a Make webhook
-    which then adds it to Google Tasks.
+    A plugin that forwards task data from ChatGPT to a Make webhook which then adds it to Google Tasks.
+
 servers:
-  - url: https://google-tasks-sender-plugin.vercel.app
+  - url: "https://google-tasks-sender-plugin.vercel.app"
+    description: "Production server"
+
 paths:
   /api:
     post:
@@ -18,6 +20,8 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+                - title
               properties:
                 title:
                   type: string
